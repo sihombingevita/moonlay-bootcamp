@@ -5,10 +5,17 @@ namespace LearnCSharp.Vehicle.Cars
 {
     public class Car : Vehicle
     {
+        public Speedometer Speedometer{
+            get; set;
+        }
+
+
         public Car()
         {
             Wheels = new List<Wheel>();
             Seats = new List<Seat>();
+            Speedometer = new Speedometer();
+            
         }
 
         public List<Wheel> Wheels { get; set; }
@@ -29,6 +36,12 @@ namespace LearnCSharp.Vehicle.Cars
             {
                 Seats.Add(seat);
             }
+        }
+
+        public void SetSpeedometer(int speed, int range){
+            Speedometer.Speed = speed;
+            Speedometer.Range = range;
+            
         }
     }
 }

@@ -9,17 +9,23 @@ namespace LearnCSharp
     {
         static void Main(string[] args)
         {
-            Wheel avanzaWheel = new Wheel("karet", 19);
+            Wheel avanzaWheel = new Wheel("karet", 19, 1000);
             Seat avanzaSeat = new Seat("kulit");
             Avanza avanza = new Avanza(4, avanzaWheel, 8, avanzaSeat);
 
-            //avanza.Moving();
+            avanza.Moving();
 
-            //System.Threading.Thread.Sleep(2000);
+            System.Threading.Thread.Sleep(2000);
 
-            //avanza.Stop();
+            avanza.Stop();
 
-            Console.WriteLine(avanza.StopTime);
+            int movingTime = avanza.StopTime.Second - avanza.StartTime.Second;
+
+            avanza.Speedometer.Range = avanzaWheel.GetCircumference() * avanzaWheel.Rotation;
+            avanza.Speedometer.Speed = avanza.Speedometer.Range / movingTime;
+
+            Console.WriteLine(avanza.Speedometer.Range);
+            Console.WriteLine(avanza.Speedometer.Speed);
 
             Console.ReadKey();
         }

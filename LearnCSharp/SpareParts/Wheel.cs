@@ -15,6 +15,15 @@ namespace LearnCSharp.SpareParts
         {
             Material = material;
             Radius = radius;
+
+        }
+
+        public Wheel(string material, double radius, int rotation)
+        {
+            Material = material;
+            Radius = radius;
+            Rotation = rotation;
+            
         }
 
         public string Material { get; private set; }
@@ -25,5 +34,6 @@ namespace LearnCSharp.SpareParts
         {
             return 2 * Math.PI * Radius / 2;
         }
+
     }
 }
